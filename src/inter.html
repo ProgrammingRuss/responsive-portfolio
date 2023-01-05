@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        height: 400px;
+        display: grid;
+        place-items: center;
+      }
+
+      section:nth-child(odd) {
+        background-color: skyblue;
+      }
+      section:nth-child(even) {
+        background-color: pink;
+      }
+
+      .show {
+        opacity: 1;
+      }
+      /* h1 {
+        transform: translateX(-200%);
+        transition: 2s;
+      } */
+      /* .show h1 {
+        transform: translateX(0px);
+      } */
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        height: 400px;
+        width: 100%;
+        max-width: 1400px;
+        padding: 0 10px;
+      }
+      .grid-item {
+        display: flex;
+        color: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+      }
+      h1 {
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hidden" id="sec2">
+      <h1>my id is section2</h1>
+    </section>
+    <section class="hidden" id="sec3">
+      <h1>my id is section3</h1>
+    </section>
+
+    <section class="hidden" id="sec4">
+      <h1>my id is section4</h1>
+    </section>
+    <section id="sec1">
+      <div class="grid">
+        <div class="grid-item">
+          <h1 class="number" data-target="1000">00+</h1>
+          <h2>share</h2>
+        </div>
+        <div class="grid-item">
+          <h1 class="number" data-target="5000">00+</h1>
+          <h2>Like</h2>
+        </div>
+        <div class="grid-item">
+          <h1 class="number" data-target="4000">00+</h1>
+          <h2>complited project</h2>
+        </div>
+        <div class="grid-item">
+          <h1 class="number" data-target="3000">00+</h1>
+          <h2>happy clients</h2>
+        </div>
+      </div>
+    </section>
+    <section class="hidden" id="sec5">
+      <h1>my id is section5</h1>
+    </section>
+    <script>
+      const divs = document.querySelectorAll("[data-target]");
+      const speed = 100;
+      const updateAnimation = () => {
+        divs.forEach((currentElement) => {
+          const targetNumber = parseInt(currentElement.dataset.target);
+          const increament = parseInt(targetNumber / speed);
+          const updateNumber = () => {
+            const initialNumber = parseInt(currentElement.innerText);
+            if (initialNumber < targetNumber) {
+              currentElement.innerText = `${initialNumber + increament}+`;
+              setTimeout(() => {
+                updateNumber();
+              }, 10);
+            }
+          };
+          updateNumber();
+        });
+      };
+      // const updateNumber = () => {
+      //   const targetNumber = parseInt(divs.dataset.target);
+      //   const initialNumber = parseInt(divs.innerHTML);
+      //   const increament = parseInt(targetNumber / speed);
+      //   if (initialNumber < targetNumber) {
+      //     divs.innerHTML = initialNumber + increament;
+
+      //     setTimeout(() => {
+      //       updateNumber();
+      //     }, 10);
+      //   }
+      // };
+
+      // updateNumber();
+
+      // divs.forEach((div) => {
+      //   console.log(div.dataset.target);
+      //   div.innerHTML = div.dataset.target;
+      // });
+      const mydiv = document.querySelector("#sec1");
+
+      // const observer = new IntersectionObserver((entries) => {
+      //   entries.forEach((entry) => {
+      //     if (entry.intersectionRatio >= 0.5) {
+      //       updateAnimation();
+      //     }
+      //   });
+      // });
+      // ===
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              console.log(entry);
+              updateAnimation();
+              observer.unobserve(mydiv);
+            }
+          });
+        },
+        {
+          // rootMargin: "100px",
+          threshold: 0.5,
+        }
+      );
+
+      observer.observe(mydiv);
+      // ===
+      // const handle = () => {
+      //   console.log("rasel");
+      // };
+      observer.observe(mydiv);
+    </script>
+  </body>
+</html>

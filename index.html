@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" id="html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated typing</title>
+    <!-- <link rel="stylesheet" href="./dist/output.css" /> -->
+    <link rel="stylesheet" href="build.css" />
+    <!-- ion icons -->
+    <link
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- aos animations  -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,600;0,700;0,800;1,900&display=swap");
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      a {
+        font-weight: 500;
+      }
+      .stickyBar {
+        animation: fadein 0.7s;
+        z-index: 30;
+        top: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(10, 10, 10, 0.354);
+        position: fixed;
+      }
+
+      @keyframes fadein {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="text-white bg-black font-promt">
+    <header
+      class="flex left-0 items-center justify-between px-6 mob:px-12 h-[100px]"
+      id="header"
+    >
+      <a href="#"><img src="./image/logo.png.webp" alt="logo" /></a>
+      <nav
+        class="fixed pt-[50px] tab:pt-0 pl-6 tab:pl-0 bg-gradient-to-b from-purple-500 to-blue-500 translate-x-full opacity-0 tab:opacity-100 invisible tab:visible tab:translate-x-0 transition-all duration-300 tab:block z-50 tab:static top-0 right-0 bottom-0 glass h-screen tab:h-auto tab:w-auto w-3/4 tab:bg-none"
+        id="nav"
+      >
+        <ul
+          class="inline-flex flex-col tab:flex-row gap-x-11 text-[16px] uppercase whitespace-nowrap"
+        >
+          <li>
+            <a
+              class="inline-block px-4 hover:text-red-400 transition-colors duration-300 tab:px-0 py-6 tab:py-0"
+              href="#"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="inline-block px-4 hover:text-red-400 transition-colors duration-300 tab:px-0 py-6 tab:py-0"
+              href="#"
+              >Gallery</a
+            >
+          </li>
+          <li>
+            <a
+              class="inline-block px-4 hover:text-red-400 transition-colors duration-300 tab:px-0 py-6 tab:py-0"
+              href="#"
+              >Category</a
+            >
+          </li>
+          <li>
+            <a
+              class="inline-block px-4 hover:text-red-400 transition-colors duration-300 tab:px-0 py-6 tab:py-0"
+              href="#"
+              >Contact us</a
+            >
+          </li>
+          <li>
+            <a
+              class="inline-block px-4 hover:text-red-400 transition-colors duration-300 tab:px-0 py-6 tab:py-0"
+              href="#"
+              >Blog</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <!-- overlay -->
+
+      <button
+        class="z-50 tab:hidden rounded-md text-3xl duration-500"
+        onclick="menuClick()"
+        id="menuButton"
+      >
+        <ion-icon class="block" name="menu" id="toggler"></ion-icon>
+      </button>
+    </header>
+    <!-- <div class="overflow-hidden stickyBar bg-white/50"></div> -->
+    <main>
+      <!-- hero Section -->
+      <section id="heroSection" class="">
+        <div
+          class="tab:bg-hero_h1 relative overflow-hidden z-0 items-center min-h-[500px] tab:min-h-[1080px] flex px-4"
+        >
+          <!-- hero-content -->
+          <div class="container mx-auto px-3 w-full z-10">
+            <div class="tab:w-4/6 lap:w-7/12">
+              <h2
+                class="uppercase mob:text-[24px] mb-[30px] mob:mb-[44px] text-red-500"
+              >
+                Creative PhotoGrraphey
+              </h2>
+              <h3
+                class="mb-[51px] text-[27px] mob:text-[35px] leading-[1.2] tab:text-[50px] lap:text-[60px] desk:text-[70px] font-bold uppercase"
+              >
+                Photography Make Us Happy Take a shot.
+              </h3>
+              <button
+                class="bg-orange-600 py-[30px] px-[38px] leading-[0] uppercase tracking-[1px] rounded-md"
+              >
+                Watch Portfolio
+              </button>
+            </div>
+          </div>
+          <!-- hero image -->
+          <div
+            class="absolute desk:right-0 z-0 tab:right-[-281px] lap:right-[-180px] top-0 hidden tab:block"
+          >
+            <img src="./image/hero.webp" alt="hero" />
+          </div>
+        </div>
+      </section>
+      <!-- animate seciton -->
+      <section
+        class="overflow-hidden bg-gradient-to-r from-purple-400 to-blue-400 py-20"
+      >
+        <div
+          class="translate-x-[25%] duration-700 container mx-auto opacity-0"
+          id="number"
+        >
+          <div
+            class="text-center mx-auto px-4 grid grid-cols-2 desk:grid-cols-4 place-items-center gap-y-20 text-3xl"
+          >
+            <div class="flex flex-col gap-y-5 py-5 items-center">
+              <p data-target="6000">00</p>
+              <p
+                class="text-3xl hover:text-gray-500 duration-300 cursor-pointer"
+              >
+                <i class="fa-solid fa-clipboard-check"></i>
+              </p>
+            </div>
+            <div class="flex flex-col gap-y-5 py-5 items-center">
+              <p data-target="5000">00</p>
+              <p
+                class="text-3xl hover:text-gray-500 duration-300 cursor-pointer"
+              >
+                <i class="fa-solid fa-person-circle-check"></i>
+              </p>
+            </div>
+            <div class="flex flex-col gap-y-5 py-5 items-center">
+              <p data-target="5500">00</p>
+              <p
+                class="text-3xl hover:text-gray-500 duration-300 cursor-pointer"
+              >
+                <i class="fa-regular fa-thumbs-up"></i>
+              </p>
+            </div>
+            <div class="flex flex-col gap-y-5 py-5 items-center">
+              <p data-target="4000">00</p>
+              <p
+                class="text-3xl hover:text-gray-500 duration-300 cursor-pointer"
+              >
+                <i class="fa-solid fa-share"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-green-500 h-screen" id="about"></section>
+    </main>
+
+    <!-- for top -->
+    <a
+      href="#"
+      class="fixed gotop z-[29] bottom-3 hidden right-3 rounded-full cursor-pointer hover:border-[3px] bg-yellow-400 w-10 h-10"
+      id="goToTop"
+    >
+    </a>
+  </body>
+
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <script src="index.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</html>

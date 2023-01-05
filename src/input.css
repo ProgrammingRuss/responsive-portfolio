@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .slide {
+    @apply relative after:absolute after:content-[''] after:top-0 after:right-0 after:w-full after:h-full after:bg-[#191919] after:border-l-2 after:border-blue-700 after:animate-[typing_1.5s_steps(20)_infinite];
+  }
+  .gotop {
+    @apply animate-[fadeside_.5s];
+  }
+}
+@keyframes fadein {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeside {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px);
+    opacity: 1;
+  }
+}
+@keyframes updown {
+  100% {
+    top: -168px;
+  }
+}
+@keyframes tabupdown {
+  100% {
+    top: -204px;
+  }
+}
+@keyframes typing {
+  100% {
+    width: 0;
+    border-color: red;
+  }
+}

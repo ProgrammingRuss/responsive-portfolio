@@ -74,11 +74,7 @@ const animationNumber = () => {
   });
 };
 // clear
-const clear = () => {
-  divs.forEach((div) => {
-    div.innerHTML = 0;
-  });
-};
+
 
 // for sticky elements
 const stickyobserver = new IntersectionObserver(
@@ -99,11 +95,10 @@ const observer = new IntersectionObserver(
   (entries) => {
     const entry = entries[0];
     if (entry.isIntersecting) {
+      entry.target.classList.add("animate-[fadeLeft_1s]")
       animationNumber();
-      entry.target.classList.remove("translate-x-[25%]", "opacity-0");
-    } else {
-      clear();
-    }
+      
+    } 
   },
   { threshold: 0 }
 );
